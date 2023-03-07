@@ -13,7 +13,7 @@ import { guard } from './jwt/guard';
 export const routes = (app: Express) => {
   app.get('/', require('./endpoints/index'));
   app.get('/profile', require('./endpoints/profile'));
-  app.get('/logout', guard, require('./endpoints/logout'));
+  app.get('/logout', require('./endpoints/logout'));
   app.get('/buyings', guard, require('./endpoints/buyings'));
   
   app.post('/login', require('./endpoints/login'));

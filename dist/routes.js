@@ -14,7 +14,7 @@ const guard_1 = require("./jwt/guard");
 const routes = (app) => {
     app.get('/', require('./endpoints/index'));
     app.get('/profile', require('./endpoints/profile'));
-    app.get('/logout', guard_1.guard, require('./endpoints/logout'));
+    app.get('/logout', require('./endpoints/logout'));
     app.get('/buyings', guard_1.guard, require('./endpoints/buyings'));
     app.post('/login', require('./endpoints/login'));
     app.post('/register', require('./endpoints/register'));

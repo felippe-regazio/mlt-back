@@ -30,8 +30,6 @@ module.exports = async function login(req: Request, res: Response) {
         maxAge: 900000000,
         domain: process.env.JWT_COOKIE_DOMAIN,
         path: '/',
-        secure: true,
-        sameSite: 'none'
       })
       .status(200)
       .json({ success: true });

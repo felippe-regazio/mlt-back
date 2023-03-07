@@ -66,7 +66,7 @@ module.exports = function login(req, res) {
                 httpOnly: true
             })
                 .status(200)
-                .json({ success: true });
+                .json({ success: true, token });
         }
     });
 };

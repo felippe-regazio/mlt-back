@@ -35,6 +35,6 @@ module.exports = async function login(req: Request, res: Response) {
         httpOnly: true
       })
       .status(200)
-      .json({ success: true });
+      .json({ success: true, token });
   }
 }

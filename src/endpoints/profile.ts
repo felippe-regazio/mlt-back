@@ -2,7 +2,7 @@ import { decodeJWT, JWT_COOKIE_NAME } from '../jwt/jwt';
 import { Request, Response } from 'express';
 
 module.exports = function profile(req: Request, res: Response) {
-  const token = req.cookies[JWT_COOKIE_NAME];
+  const token = req.cookies[JWT_COOKIE_NAME] || req.token;
 
   decodeJWT(token)
     .then((payload: any) => {

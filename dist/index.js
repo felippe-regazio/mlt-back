@@ -38,7 +38,6 @@ const routes_1 = require("./routes");
 const app = (0, express_1.default)();
 const port = process.env.PORT;
 const CORSAllowedDomains = (_a = process.env.ACCESS_CONTROL_ALLOW_ORIGIN) === null || _a === void 0 ? void 0 : _a.split(',').map(item => item.trim());
-console.log(CORSAllowedDomains);
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: true }));
 app.use((0, cors_1.default)({ credentials: true, origin: CORSAllowedDomains }));

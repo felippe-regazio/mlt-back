@@ -1,3 +1,6 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import { Request, Response } from 'express';
 import { comparePassword } from '../functions';
 import { encodeJWT, JWT_COOKIE_NAME } from '../jwt/jwt';
@@ -21,9 +24,14 @@ module.exports = async function login(req: Request, res: Response) {
     const userData = user?.toObject() || {};
     delete userData.password;
     const token = encodeJWT(userData);
-  
+
     res
-      .cookie(JWT_COOKIE_NAME, token, { maxAge: 900000000, domain: 'mlt-front.herokuapp.com localhost:3000 localhost:5000', path: '/admin', secure: true })
+      .cookie(JWT_COOKIE_NAME, token, { 
+        maxAge: 900000000,
+        domain: process.env.JWT_COOKIE_DOMAIN,
+        path: '/',
+        secure: true 
+      })
       .status(200)
       .json({ success: true });
   }

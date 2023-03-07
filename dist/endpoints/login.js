@@ -32,7 +32,7 @@ module.exports = function login(req, res) {
             delete userData.password;
             const token = (0, jwt_1.encodeJWT)(userData);
             res
-                .cookie(jwt_1.JWT_COOKIE_NAME, token, { maxAge: 900000000 })
+                .cookie(jwt_1.JWT_COOKIE_NAME, token, { maxAge: 900000000, domain: 'mlt-front.herokuapp.com localhost:3000 localhost:5000', path: '/admin', secure: true })
                 .status(200)
                 .json({ success: true });
         }

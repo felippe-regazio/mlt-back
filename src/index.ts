@@ -10,10 +10,11 @@ import { routes } from './routes';
 
 const app: Express = express();
 const port = process.env.PORT;
-
+const CORSAllowedDomains = process.env.ACCESS_CONTROL_ALLOW_ORIGIN?.split(',').map(item => item.trim());
+console.log(CORSAllowedDomains)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors({ credentials: true, origin: process.env.ACCESS_CONTROL_ALLOW_ORIGIN?.split(',')}));
+app.use(cors({ credentials: true, origin: CORSAllowedDomains}));
 app.use(cookieParser());
 
 // subscribe all the routes to the app

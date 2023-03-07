@@ -19,7 +19,7 @@ module.exports = async function checkout(req: Request, res: Response) {
 
       new Buyings({
         payment: payment,
-        userId: (req as any).$user.id     
+        userId: (req as any).$user._id
       }).save();
 
       res

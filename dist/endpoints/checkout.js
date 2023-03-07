@@ -30,7 +30,7 @@ module.exports = function checkout(req, res) {
                 payment = yield (0, mercadopago_1.mpCreatePayment)(data);
                 new buyings_1.default({
                     payment: payment,
-                    userId: req.$user.id
+                    userId: req.$user._id
                 }).save();
                 res
                     .status(payment.status)

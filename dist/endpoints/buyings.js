@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const buyings_1 = __importDefault(require("../database/models/buyings"));
 module.exports = function checkout(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const rawBuyings = yield buyings_1.default.find({ userId: req === null || req === void 0 ? void 0 : req.$user.id });
+        const rawBuyings = yield buyings_1.default.find({ userId: req === null || req === void 0 ? void 0 : req.$user._id });
         const buyings = (rawBuyings === null || rawBuyings === void 0 ? void 0 : rawBuyings.length) && rawBuyings.map((item) => {
             return {
                 currency_id: item.payment.body.currency_id,

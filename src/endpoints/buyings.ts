@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import Buyings from '../database/models/buyings';
 
 module.exports = async function checkout(req: Request, res: Response) {
-  const rawBuyings = await Buyings.find({ userId: (req as any)?.$user.id });
+  const rawBuyings = await Buyings.find({ userId: (req as any)?.$user._id });
 
   const buyings = rawBuyings?.length && rawBuyings.map((item: any) => {
     return {

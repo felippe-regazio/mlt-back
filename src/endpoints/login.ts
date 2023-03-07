@@ -31,7 +31,8 @@ module.exports = async function login(req: Request, res: Response) {
         domain: process.env.JWT_COOKIE_DOMAIN,
         path: '/',
         secure: true,
-        sameSite: 'none'
+        sameSite: 'none',
+        httpOnly: true
       })
       .status(200)
       .json({ success: true });

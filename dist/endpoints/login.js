@@ -61,7 +61,8 @@ module.exports = function login(req, res) {
                 maxAge: 900000000,
                 domain: process.env.JWT_COOKIE_DOMAIN,
                 path: '/',
-                secure: true
+                secure: true,
+                sameSite: 'none'
             })
                 .status(200)
                 .json({ success: true });
